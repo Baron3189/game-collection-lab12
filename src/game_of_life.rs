@@ -1,7 +1,6 @@
 // Game of Life, Week 12: grid, display, neighbor counts, the rule for one cell.
 //
 // TODO: remove the next line once every function below is used.
-#![allow(dead_code)]
 
 const ROWS: usize = 10;
 const COLS: usize = 20;
