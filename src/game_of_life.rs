@@ -12,10 +12,15 @@ pub fn new_grid() -> Grid {
     [[false; COLS]; ROWS]
 }
 // '#' for a live cell, '.' for a dead cell, one line per row.
-pub fn print_grid(_grid: &Grid) {
-    todo!("Implement print_grid")
+pub fn print_grid(grid: &Grid) {
+    for row in grid.iter() {
+        let mut line = String::new();
+        for &cell in row.iter() {
+            line.push(if cell { '#' } else { '.' });
+        }
+        println!("{}", line);
+    }
 }
-
 // Live neighbors of (row, col): the eight surrounding cells, excluding the cell itself.
 // Cells beyond the edge count as dead. Careful: row - 1 on a usize of 0 panics.
 pub fn count_neighbors(_grid: &Grid, _row: usize, _col: usize) -> u8 {
