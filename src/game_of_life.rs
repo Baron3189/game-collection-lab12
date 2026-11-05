@@ -72,9 +72,25 @@ pub fn print_neighbor_counts(grid: &Grid) {
 // Set a few cells alive (hardcoded, or entered as `row col` pairs until a blank line),
 // print the grid, then the neighbor counts.
 pub fn play() {
-    todo!("Implement play")
-}
+    let mut grid = new_grid();
 
+    // a vertical line of three in the middle (array indexes, counting from 0)
+    grid[4][10] = true;
+    grid[5][10] = true;
+    grid[6][10] = true;
+
+    println!("Grid:");
+    print_grid(&grid);
+
+    println!();
+    println!("Neighbor counts:");
+    print_neighbor_counts(&grid);
+
+    // shows next_state in use without running a generation
+    let centre = next_state(grid[5][10], count_neighbors(&grid, 5, 10));
+    println!();
+    println!("Centre cell alive in the next generation? {}", centre);
+}
 #[cfg(test)]
 mod tests {
     use super::*;
